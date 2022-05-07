@@ -1,6 +1,6 @@
 MERHABA!
 
-Selenium - TestNG projesidir bu
+Selenium - TestNG Projesi
 
 Bu alanda proje aciklamasi olur
 
