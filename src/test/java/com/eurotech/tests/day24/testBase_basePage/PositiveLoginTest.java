@@ -1,5 +1,6 @@
 package com.eurotech.tests.day24.testBase_basePage;
 
+import com.eurotech.pages.DashboardPage;
 import com.eurotech.pages.LoginPage;
 import com.eurotech.tests.TestBase;
 import com.eurotech.utilities.ConfigurationReader;
@@ -15,6 +16,59 @@ public class PositiveLoginTest extends TestBase {
     @Test
     public void loginTest() throws InterruptedException {
 
+
+        LoginPage loginPage = new LoginPage();
+        DashboardPage dashboardPage= new DashboardPage();
+
+        loginPage.understandBtn.click();
+        loginPage.loginBtnBasePage.click();
+
+        String email= ConfigurationReader.get("usernameTeacher");
+        String password= ConfigurationReader.get("passwordTeacher");
+
+        loginPage.emailInput.sendKeys(email);
+        loginPage.passwordInput.sendKeys(password);
+        loginPage.loginBtnLoginPage.click();
+
+        String expectedText="Welcome Eurotech"; //test case e baslamadan once bize credentials olarak bize verilecek
+        String actualText= dashboardPage.welcomeMessage.getText();
+
+        Assert.assertEquals(actualText,expectedText);
+        System.out.println("dashboardPage.welcomeMessage.getText() = " + dashboardPage.welcomeMessage.getText());
+
+    }
+
+    @Test
+    public void loginWithTeacher() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.understandBtn.click();
+        loginPage.loginBtnBasePage.click();
+        DashboardPage dashboardPage = new DashboardPage();
+        loginPage.loginTeacher();
+        Assert.assertEquals(dashboardPage.welcomeMessage.getText(),"Welcome Eurotech");
+    }
+
+    @Test
+    public void login() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.understandBtn.click();
+        loginPage.loginBtnBasePage.click();
+        loginPage.login(ConfigurationReader.get("usernameDeveloper"),ConfigurationReader.get("passwordDeveloper"));
+        loginPage.loginBtnLoginPage.click();
+    }
+
+
+
+
+        /*
+
+        configuration.properties in icerisini degistirdik o yüzden artik calismadi
+
+        browser = chrome
+        url = https://www.saucedemo.com/
+        username = standard_user
+        password = secret_sauce
+
         LoginPage loginPage = new LoginPage();
 
         loginPage.usernameInput.sendKeys(ConfigurationReader.get("username"));
@@ -26,6 +80,9 @@ public class PositiveLoginTest extends TestBase {
         loginPage.loginButton.click();
 
         Assert.assertTrue(driver.getCurrentUrl().contains("https://www.saucedemo.com/inventory.html"));
+
+
+         */
 
 
         /*
@@ -49,6 +106,6 @@ public class PositiveLoginTest extends TestBase {
 
          */
 
-    }
+
 
 }
