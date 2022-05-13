@@ -28,6 +28,12 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//span[text()='Logout']")
     public WebElement logoutBtn;
 
+    @FindBy(xpath = "//*[text()='Edit Profile']")
+    public WebElement editProfile;
+
+    @FindBy(xpath = "//td[contains(text(),'Microsoft ')]/../td[2]")
+    public WebElement usersTitle;
+
     @Test
     public void navigateToMenu(String menuName) {
 

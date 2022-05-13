@@ -1,0 +1,28 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Eurotech Automation" verbose="1">
+    <test name="Eurotech Smoke Test">
+        <packages>
+            <package name="com.eurotech.tests.day26.ProjectObjectModel"></package>
+            <package name="com.eurotech.tests.day22.webTables.HoverTest"></package>
+            
+        </packages>
+        
+        <classes>
+            <class name="com.eurotech.tests.day22.webTables.HoverTest">
+                <methods>
+                    <include name="printAllCellByIndex"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+<!--  <package name"*"> yazarsak bütün package leri calistirir(hata verdi ama) sadece 1 class calistirmak istersekte 
+.class ismine kadar gitmeliyiz package icinde -->
+<!-- eger class icerisinden sadece tek bir methodu calistirmak istersek classes aciyoruz (package degil )bi asagi inip methods
+bidaha inip include ve icerisine method  name yazarak yapabiliriz-->
+<!-- include yi exclude yaparsakta o method haric diger methodlarin hepsini calistirir ayni class icindeki -->
+<!-- File save all yapmayi unutmayalim bazen görmüyor -->
+<!-- verbose kismina da 1 degilde baska bi sayi yazarsak daha detayli bilgi veriyor sadece-->
+

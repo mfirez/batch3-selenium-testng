@@ -1,4 +1,4 @@
-package com.eurotech.tests.TestNG;
+package com.eurotech.tests.day14.TestNG;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
